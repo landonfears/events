@@ -1,0 +1,54 @@
+<div id="events">
+  <h1>Events</h1>
+  <form name="searchForm" class="search-form" novalidate>
+    <input type="text"
+        ng-model="searchQuery" 
+        ng-change="searchEvents()"
+        ng-focus="searchFocus = true"
+        placeholder="Search Events" />
+    <div class="search-results" ng-show="eventSearches.length && searchFocus">
+      <ul>
+        <li ng-repeat="eventSearch in eventSearches"><a href="#" ng-click="clickSearchResult(eventSearch)">{{eventSearch.title}} {{formatDate(eventSearch.from, 'search')}} - {{formatDate(eventSearch.to, 'search')}}</a></li>
+      </ul>
+    </div>
+  </form>
+
+  <form name="eventForm" class="event-form" novalidate>
+    <button ng-click="initializeEvent()">New</button>
+    <button ng-if="currentEvent._id" ng-click="deleteEvent()">Delete</button>
+
+    <input type="text"
+      ng-model="currentEvent.title" 
+      required
+      placeholder="Title" />
+
+    <input type="date"
+      ng-model="currentEvent.from"
+      required
+      placceholder="MM/DD/YYYY" />
+
+    <input type="date"
+      ng-model="currentEvent.to"
+      required
+      placceholder="MM/DD/YYYY" />
+
+    <input type="text"
+      ng-model="currentEvent.location" 
+      required
+      placeholder="Location" />
+
+    <input type="text"
+      ng-model="currentEvent.description" 
+      required
+      placeholder="Description" />
+
+    <button ng-click="addParticipants()">Add Participant</button>
+    <input ng-repeat="participant in currentEvent.participants track by $index"
+      ng-model="currentEvent.participants[$index]"
+      placeholder="Participant" />
+
+    <button class="save" ng-disabled="eventForm.$invalid" 
+      ng-class="{'disabled': eventForm.$invalid}"
+      ng-click="addEvent()">Save</button>
+  </form>
+</div>

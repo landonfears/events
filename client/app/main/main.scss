@@ -1,0 +1,93 @@
+$events-width: 600px;
+#events {
+    margin:0 auto;
+    width: $events-width;
+}
+h1 {
+    font-size:60px;
+    margin:15px 0;
+}
+form {
+    &.search-form {
+        position:relative;
+
+        input {
+            font-size:40px;
+            outline:none;
+            border:1px solid #000000;
+            padding:10px;
+            box-sizing:border-box;
+            width: $events-width;
+            display:block;
+        }
+        .search-results {
+            position:relative;
+        }
+        ul {
+            position:absolute;
+            top:0;
+            list-style:none;
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            width: $events-width;
+            border:1px solid #000000;
+            border-top:none;
+            background-color: #FFFFFF;
+        }
+        li {
+
+        }
+        a {
+            line-height:30px;
+            font-size:24px;
+            padding:10px;
+            color:#000000;
+            text-decoration: none;
+            display:block;
+            width: $events-width;
+            box-sizing:border-box;
+            &:hover {
+                background-color:#54CC0E;
+                color:#FFFFFF;
+            }
+        }
+    }
+    
+    &.event-form {
+        button {
+          background-color: #54CC0E;
+          border:none;
+          -moz-border-radius: 10px;
+          -webkit-border-radius: 10px;
+          border-radius: 10px;
+          -khtml-border-radius: 10px;
+          color: #FFFFFF;
+          font-size: 26px;
+          cursor:pointer;
+          padding:15px;
+          margin:20px 20px 20px 0;
+          outline:none;
+
+          &.save {
+            float:right;
+            margin-right:0;
+          }
+          &.disabled {
+            background-color: #abdf8d;
+            cursor:default;
+          }
+        }
+
+        input {
+            font-size:30px;
+            outline:none;
+            border:1px solid #000000;
+            padding:10px;
+            box-sizing:border-box;
+            width:$events-width;
+            display:block;
+            margin-bottom:15px;
+        }
+    }
+}
