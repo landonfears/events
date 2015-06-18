@@ -82,7 +82,7 @@ describe('Controller: MainCtrl', function () {
   it('should get the correct event', function() {
       scope.currentEvent = {
         _id: 3
-      }
+      };
       scope.showEvent();
       $httpBackend.flush();
       expect(scope.currentEvent.title).toBe('Event 1');
@@ -97,7 +97,7 @@ describe('Controller: MainCtrl', function () {
         location: 'Movies',
         description: 'Catch a flick',
         participants: ['me', 'Joe']
-      }
+      };
       scope.addEvent();
       $httpBackend.flush();
       expect(scope.currentEvent._id).toBe(4);
@@ -112,7 +112,7 @@ describe('Controller: MainCtrl', function () {
         location: 'Movies',
         description: 'Catch a flick',
         participants: ['me', 'Joe']
-      }
+      };
       scope.updateEvent();
       $httpBackend.flush();
       expect(scope.currentEvent.to.getDate()).toBe(14);
@@ -123,5 +123,5 @@ describe('Controller: MainCtrl', function () {
       scope.searchEvents();
       $httpBackend.flush();
       expect(scope.eventSearches.length).toBe(2);
-  })
+  });
 });
